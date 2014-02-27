@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["mark@agiledna.com"]
   spec.summary       = %q{Domain Driven provides Rails hooks for a Domain Driven Design}
   spec.description   = %q{Domain Driven provides Rails abstract classes and generators to support for a Domain Driven Design}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/mwindholtz/domain_driven"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
