@@ -4,6 +4,24 @@ describe 'Criteria' do
 
   Given! (:criteria)  { DomainDriven::Criteria.new }
 
+  context "combining two criteria" do
+    Given! (:criteria1)  { criteria }
+    Given! (:criteria2)  { DomainDriven::Criteria.new }
+    Given                { criteria1.where("id=5") }
+    Given                { criteria2.page("3") }
+    
+    context "shift" do
+      When(:result)  { criteria1.shift(criteria2) }
+      Then           { result.display_chain.should eq("where id=5, page 3") }
+    end                                                                      
+    
+    context "unshift" do
+      When(:result)  { criteria2.unshift(criteria1) }
+      Then           { result.display_chain.should eq("where id=5, page 3") }
+    end
+    
+  end
+
   context "empty criteria has no effect" do
     Then { criteria.display_chain.should eq("")}
 

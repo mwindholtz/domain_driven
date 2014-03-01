@@ -23,6 +23,18 @@ module DomainDriven
     def initialize()
       @chain = []
     end
+
+    def shift(criteria)
+      criteria.chain.each do |e| 
+        add_message(e)
+      end
+      self
+    end
+
+    def unshift(criteria)
+      criteria.shift(self)
+      criteria
+    end
   
     # sugar
     def add(name, *args)
@@ -52,8 +64,13 @@ module DomainDriven
     def find(*)
       raise "not supported"  
     end
-    
+
+    def chain
+      @chain
+    end
+
     private 
+      
       def add_message(message)
         @chain << message 
       end
