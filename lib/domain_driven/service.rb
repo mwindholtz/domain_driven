@@ -1,5 +1,5 @@
-require_dependency "interactor"
-require_dependency "pundit"
+require "interactor"
+require "pundit"
                                  
 module DomainDriven
   class Service
