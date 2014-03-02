@@ -1,3 +1,7 @@
+# Gem Status 
+As of 2 March 2014, Incomplete Extraction.  
+This gem is in the process of being extracted from a reference architecture RubyOnRails application.
+
 # DomainDriven
 
 This gem and set of techniques allow you to use *DDD* to controll complexity and dependencies as your RubyOnRails application grows.  The additional benefit is that since core domain logic is decoupled from the Rails framework and database, automated tests of the core domain logic can run very fast. 
