@@ -1,4 +1,4 @@
-# Thanks to Jim Weirich for the concepts in this class. 
+# Thanks to Jim Weirich for the concepts in this class.
 # Extracted from https://github.com/jimweirich/wyriki
 # domain_driven would not be possible without this critical part.
 
@@ -37,9 +37,25 @@ module DomainDriven
     end
 
     def self.wraps(entities)
-      return entities unless entities
-      entities.map { |entity| wrap(entity) }
+      return nil unless entities
+      wrap(entities.extend Model).extend Collection
     end
 
   end
+
+  module Collection
+    def each
+      _data.each do |_item|
+        yield wrap(_item)
+      end
+    end
+    def include?(other)
+      if other.respond_to?(:_data)
+        _data.include?(other._data)
+      else
+        _data.include?(other)
+      end
+    end
+  end
+
 end
