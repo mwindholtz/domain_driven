@@ -54,7 +54,7 @@ Under constuction
 *[Jim Weirich](https://github.com/jimweirich)*
 For conversations explaining to us the ideas inside [wyriki](https://github.com/jimweirich/wyriki) 
 
-*[Eric Evans](http://www.domainlanguage.com)*
+*[Eric Evans](https://twitter.com/ericevans0)*
 For providing the concept of Domain Driven Design
 
 
