@@ -6,7 +6,7 @@ module DomainDriven
     end
 
     def to_s
-      "#{@name} #{@args}"
+      "#{@name}(#{@args})"
     end
     
     def sendable
@@ -41,8 +41,9 @@ module DomainDriven
       add_message(DomainDriven::Message.new(name, *args))
     end
     
-    def display_chain
-      @chain.map(&:to_s).join(', ')
+    def to_s
+      return '' if @chain.empty?
+      "target." + @chain.map(&:to_s).join('.') 
     end
 
     def send_to(target)   
