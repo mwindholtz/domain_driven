@@ -11,9 +11,9 @@ module DomainDriven
     rescue DomainDriven::RecordNotFound
       raise
     rescue Pundit::NotAuthorizedError
-      raise 
-    rescue => x
-      perform_rescue(x)
+      raise
+    # rescue => x
+    #   perform_rescue(x)
     end
 
     protected
