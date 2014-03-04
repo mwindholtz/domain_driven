@@ -1,5 +1,7 @@
+[![Gem Version](https://badge.fury.io/rb/domain_driven.png)](http://badge.fury.io/rb/domain_driven) 
+
 # Gem Status 
-As of 2 March 2014, Incomplete Extraction.  
+As of 4 March 2014, Incomplete Extraction.  
 This gem is in the process of being extracted from a reference architecture RubyOnRails application.
 
 # DomainDriven
@@ -62,3 +64,4 @@ For providing the concept of Domain Driven Design
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
