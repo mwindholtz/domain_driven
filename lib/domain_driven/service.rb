@@ -1,6 +1,6 @@
 require "interactor"
 require "pundit"
-                                 
+
 module DomainDriven
   class Service
     include Interactor
@@ -9,21 +9,21 @@ module DomainDriven
     def perform
       perform_main
     rescue DomainDriven::RecordNotFound
-      raise 
+      raise
     rescue Pundit::NotAuthorizedError
       raise 
     rescue => x
       perform_rescue(x)
     end
-   
+
     protected
       def current_user
         context[:current_member]
-      end  
+      end
 
       def request
         context[:request]
-      end  
+      end
 
       def perform_main
         raise "subclass responsibility for #{self.class} "
@@ -33,7 +33,7 @@ module DomainDriven
         context[:errors] = x.message
         context.fail!
       end
-    
+
   end
 
 end

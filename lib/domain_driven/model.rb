@@ -1,4 +1,4 @@
-# Thanks to Jim Weirich for the concepts in this class. 
+# Thanks to Jim Weirich for the concepts in this class.
 # Extracted from https://github.com/jimweirich/wyriki
 # domain_driven would not be possible without this critical part.
 
@@ -21,9 +21,9 @@ module DomainDriven
         super
       end
     end
-    
+
     module ClassMethods
-      
+
       def find(*)
         super
       rescue ActiveRecord::RecordNotFound  => error
@@ -32,14 +32,14 @@ module DomainDriven
         raise DomainDriven::Error.new(error)
       end
 
-    end    
+    end
 
-    
-    def self.included(klass)   
+
+    def self.included(klass)
       super
       klass.extend ClassMethods
     end
-    
+
   end
 
 end
