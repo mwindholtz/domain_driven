@@ -6,8 +6,8 @@ require 'domain_driven/version'
 Gem::Specification.new do |spec|
   spec.name          = "domain_driven"
   spec.version       = DomainDriven::VERSION
-  spec.authors       = ["Mark Windholtz"]
-  spec.email         = ["mark@agiledna.com"]
+  spec.authors       = ["Mark Windholtz", "Rob Biedenharn" ]
+  spec.email         = ["mark@agiledna.com", "Rob@AgileConsultingLLC.com"]
   spec.summary       = %q{Domain Driven provides Rails hooks for a Domain Driven Design}
   spec.description   = %q{Domain Driven provides Rails abstract classes and generators to support for a Domain Driven Design}
   spec.homepage      = "https://github.com/mwindholtz/domain_driven"
