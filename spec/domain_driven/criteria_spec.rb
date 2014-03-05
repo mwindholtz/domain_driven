@@ -10,15 +10,10 @@ describe 'Criteria' do
     Given                { criteria1.where("id=5") }
     Given                { criteria2.page("3") }
     
-    context "shift" do
-      When(:result)  { criteria1.shift(criteria2) }
+    context "merge" do
+      When(:result)  { criteria1.merge(criteria2) }
       Then           { result.to_s.should eq("target.where(id=5).page(3)") }
     end                                                                      
-    
-    context "unshift" do
-      When(:result)  { criteria2.unshift(criteria1) }
-      Then           { result.to_s.should eq("target.where(id=5).page(3)") }
-    end
     
   end
 

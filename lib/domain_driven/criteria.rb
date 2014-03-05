@@ -24,16 +24,11 @@ module DomainDriven
       @chain = []
     end
 
-    def shift(criteria)
+    def merge(criteria)
       criteria.chain.each do |e| 
         add_message(e)
       end
       self
-    end
-
-    def unshift(criteria)
-      criteria.shift(self)
-      criteria
     end
   
     # sugar
