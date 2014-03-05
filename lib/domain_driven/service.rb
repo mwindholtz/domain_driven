@@ -25,6 +25,10 @@ module DomainDriven
         context[:request]
       end
 
+      def criteria
+        context[:criteria]
+      end
+
       def perform_main
         raise "subclass responsibility for #{self.class} "
       end
