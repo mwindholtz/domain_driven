@@ -1,4 +1,4 @@
-[![Gem Version](https://badge.fury.io/rb/domain_driven.png)](http://badge.fury.io/rb/domain_driven)   [![Code Climate](https://codeclimate.com/github/mwindholtz/domain_driven.png)](https://codeclimate.com/github/mwindholtz/domain_driven) 
+[![Gem Version](https://badge.fury.io/rb/domain_driven.png)](http://badge.fury.io/rb/domain_driven)   [![Code Climate](https://codeclimate.com/github/mwindholtz/domain_driven.png)](https://codeclimate.com/github/mwindholtz/domain_driven)  [![Build Status](https://travis-ci.org/mwindholtz/domain_driven.png?branch=master)](https://travis-ci.org/mwindholtz/domain_driven)
 
 # Gem Status 
 As of 4 March 2014, Incomplete Extraction.  
