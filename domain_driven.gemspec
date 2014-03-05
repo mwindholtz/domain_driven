@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = DomainDriven::VERSION
   spec.authors       = ["Mark Windholtz", "Rob Biedenharn" ]
   spec.email         = ["mark@agiledna.com", "Rob@AgileConsultingLLC.com"]
-  spec.summary       = %q{Domain Driven provides Rails hooks for a Domain Driven Design}
-  spec.description   = %q{Domain Driven provides Rails abstract classes and generators to support for a Domain Driven Design}
+  spec.summary       = %q{domain_driven allows Domain Driven Design (DDD) within RubyOnRails }
+  spec.description   = %q{domain_driven provides Rails abstract classes and generators to support for a Domain Driven Design}
   spec.homepage      = "https://github.com/mwindholtz/domain_driven"
   spec.license       = "MIT"
 
