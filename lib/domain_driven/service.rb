@@ -26,7 +26,7 @@ module DomainDriven
       end
 
       def criteria
-        context[:criteria]
+        context[:criteria] || DomainDriven::Criteria.new
       end
 
       def perform_main
