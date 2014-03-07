@@ -1,11 +1,10 @@
 class DomainDriven::Repository
-   
+  attr_accessor :logger
+
   protected
-    def initialize(name, logger)
+    def initialize(name)
       @name   = name
-      @logger = logger
+      self.logger = Logger.new(STDOUT)
     end
     
-    def logger; @logger; end
-      
 end
