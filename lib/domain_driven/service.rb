@@ -38,6 +38,11 @@ module DomainDriven
         context.fail!
       end
 
-  end
+  end # class Service
 
+
+  class ServiceOrganizer
+    include Interactor::Organizer    
+  end # 
+    
 end

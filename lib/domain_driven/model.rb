@@ -32,7 +32,7 @@ module DomainDriven
         raise DomainDriven::Error.new(error)
       end
 
-    end
+    end # ClassMethods
 
 
     def self.included(klass)
