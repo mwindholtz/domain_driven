@@ -39,6 +39,16 @@ module DomainDriven
           raise "repository not found: (#{name})"
         end
       end 
+      
+      
+      def method_missing(name,*args)
+        if name.to_s.first(4) == 'for_'
+          self.for(name.to_s[4..-1].to_sym)
+        else
+          super
+        end
+      end
+
     end  # module Repo 
 
     protected
