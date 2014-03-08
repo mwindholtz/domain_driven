@@ -12,9 +12,34 @@ module DomainDriven
       raise
     rescue Pundit::NotAuthorizedError
       raise
-    # rescue => x
-    #   perform_rescue(x)
     end
+
+    module Repo  # this is the Repository Factory
+      module_function  
+
+      class << self
+        attr_writer :logger, :factory
+      end
+
+      def logger 
+        @logger ||= Logger.new(STDOUT)
+      end
+
+      def factory
+        return @factory if @factory
+        raise "Repo has no factory initialized.  Add an intializer file with something like this: DomainDriven::Service::Repo.factory = { course:  CourseRepository, ...}" 
+      end
+
+      def for(name) 
+        logger.info("Provisioning Repo #{name}")
+        if repo_class = factory[name]
+          repo = repo_class.new(name) 
+          repo
+        else
+          raise "repository not found: (#{name})"
+        end
+      end 
+    end  # module Repo 
 
     protected
       def current_user
