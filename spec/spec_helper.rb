@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'rspec-given'
 require 'domain_driven'
+require 'ostruct'
 
 module Given  
   module ClassExtensions
