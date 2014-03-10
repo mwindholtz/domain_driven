@@ -2,10 +2,15 @@ require 'spec_helper'
 
 class EntityUnderTest < DomainDriven::Entity
 end
+                                                             
+class FakeModel
+  include DomainDriven::Model
+  def course_type; 'A'; end
+end
   
 describe 'Entity' do
 
-  Given! (:model)   { double(:course_type => 'A', 'entity?'.to_sym => false) }  
+  Given! (:model)   { FakeModel.new  }  
   Given! (:entity)  { EntityUnderTest.new(model) }
   
   context 'has model as _data ' do  
@@ -24,7 +29,7 @@ describe 'Entity' do
 
   context 'class name' do 
     context 'wrap same class as model' do 
-      Then { entity.class.to_s == "RSpec::Mocks::Mock" }  
+      Then { entity.class.to_s == "FakeModel" }  
     end 
 
     context 'wrap nil is still nil' do  
@@ -41,6 +46,13 @@ describe 'Entity' do
       When(:entity_list)  { EntityUnderTest.wraps( [model, model])  }
       Then { entity_list.class.to_s == "Array"}   
     end 
+
+    context 'class wraps each model ina a set of models' do  
+      When(:entity_list)  { EntityUnderTest.wraps( [model, model])  }
+      Then { entity_list.first.class.to_s == "FakeModel"}   
+##     Then { entity_list.each{|e| e.entity?.should be_true }}    # FIXME
+    end 
+
   end 
   
   def self.wrap(entity)

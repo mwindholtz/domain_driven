@@ -38,7 +38,7 @@ module DomainDriven
 
     def self.wraps(entities)
       return nil unless entities
-      wrap(entities.extend Model).extend Collection
+      wrap(entities.extend Model).extend Collection # FIXME needs to provide the Entity type somehow
     end
 
   end
@@ -46,9 +46,10 @@ module DomainDriven
   module Collection
     def each
       _data.each do |_item|
-        yield wrap(_item)
+        yield wrap(_item)    # FIXME  fails.
       end
     end
+
     def include?(other)
       if other.respond_to?(:_data)
         _data.include?(other._data)
