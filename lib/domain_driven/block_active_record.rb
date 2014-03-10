@@ -35,8 +35,8 @@ module DomainDriven
 
     private
 
-    def no_db_methods
-      fail ActiveRecordNotAvailableError, "No DB methods on Business Objects"
-    end
+      def no_db_methods
+        fail ActiveRecordNotAvailableError, "No DB methods on Business Objects"
+      end
   end
 end
