@@ -2,12 +2,7 @@ require 'spec_helper'
 
 class EntityUnderTest < DomainDriven::Entity
 end
-                                                             
-class FakeModel
-  include DomainDriven::Model
-  def course_type; 'A'; end
-end
-  
+                                                               
 describe 'Entity' do
 
   Given! (:model)   { FakeModel.new  }  
