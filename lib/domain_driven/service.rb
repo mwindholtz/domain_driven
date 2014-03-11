@@ -42,7 +42,7 @@ module DomainDriven
       
       
       def method_missing(name,*args)
-        if name.to_s.first(4) == 'for_'
+        if name.to_s[0...4] == 'for_'
           self.for(name.to_s[4..-1].to_sym)
         else
           super
