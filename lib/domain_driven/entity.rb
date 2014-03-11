@@ -27,18 +27,19 @@ module DomainDriven
     def entity?
       true
     end
-
+                   
+    alias :_real_class :class
     def class
       _data.class
     end
-
+    
     def self.wrap(entity)
       entity ? new(entity) : nil
     end
 
     def self.wraps(entities)
       return nil unless entities
-      wrap(entities.extend Model).extend Collection # FIXME needs to provide the Entity type somehow
+      wrap(entities.extend Model).extend Collection 
     end
 
   end
@@ -46,7 +47,7 @@ module DomainDriven
   module Collection
     def each
       _data.each do |_item|
-        yield wrap(_item)    # FIXME  fails.
+        yield self._real_class.wrap(_item) 
       end
     end
 

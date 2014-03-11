@@ -1,12 +1,13 @@
 require 'spec_helper'
 
 class EntityUnderTest < DomainDriven::Entity
+  def some_biz_logic; 42; end
 end
                                                                
 describe 'Entity' do
 
   Given! (:model)   { FakeModel.new  }  
-  Given! (:entity)  { EntityUnderTest.new(model) }
+  Given! (:entity)  { EntityUnderTest.wrap(model) }
   
   context 'has model as _data ' do  
     Then { entity.entity?.should == true }    
@@ -42,10 +43,10 @@ describe 'Entity' do
       Then { entity_list.class.to_s == "Array"}   
     end 
 
-    context 'class wraps each model ina a set of models' do  
+    context 'class wraps each model into a set of models' do  
       When(:entity_list)  { EntityUnderTest.wraps( [model, model])  }
-      Then { entity_list.first.class.to_s == "FakeModel"}   
-##     Then { entity_list.each{|e| e.entity?.should be_true }}    # FIXME
+      Then { entity_list.each{|e| e.should be_entity } } 
+      Then { entity_list.each{|e| e.some_biz_logic.should == 42 } }       
     end 
 
   end 
