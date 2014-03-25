@@ -1,8 +1,4 @@
 require 'spec_helper'
-
-class RepositoryUnderTest  
-  include DomainDriven::Repository
-end
   
 describe 'Repository' do
 

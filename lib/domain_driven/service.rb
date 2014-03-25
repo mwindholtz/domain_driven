@@ -32,7 +32,8 @@ module DomainDriven
 
       def for(name) 
         logger.info("Provisioning Repo #{name}")
-        if repo_class = factory[name]
+        if repo_class_name = factory[name]
+          repo_class = repo_class_name.to_s.classify.constantize 
           repo = repo_class.new(name) 
           repo
         else

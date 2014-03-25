@@ -8,6 +8,14 @@ module ActiveRecord
   end
 end
 
+class RepositoryUnderTest  
+  include DomainDriven::Repository
+end
+
+class FakeRepository
+  include DomainDriven::Repository
+end
+
 class FakeBaseModel 
   def self.find(*)
     raise(ActiveRecord::RecordNotFound.new('clever message')) 
@@ -24,4 +32,14 @@ module Given
     alias Whereas Given 
     alias Whereas! Given! 
   end
+end
+
+class FastSpecLogger 
+  def self.instance
+    @instance ||= FastSpecLogger.new
+  end
+  
+  def initialize; @last_error = ''; end
+  def error(value); @last_error = value; end
+  def info(value); @last_error = value; end
 end
