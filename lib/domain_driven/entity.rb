@@ -51,6 +51,12 @@ module DomainDriven
       end
     end
 
+    def to_a
+      _data.inject([]) do |array, _item|
+        array << self._real_class.wrap(_item)
+      end
+    end
+    
     def include?(other)
       if other.respond_to?(:_data)
         _data.include?(other._data)
