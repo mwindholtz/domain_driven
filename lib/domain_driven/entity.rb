@@ -33,13 +33,13 @@ module DomainDriven
       _data.class
     end
     
-    def self.wrap(entity)
-      entity ? new(entity) : nil
+    def self.wrap(a_model)
+      a_model ? new(a_model) : nil
     end
 
-    def self.wraps(entities)
-      return nil unless entities
-      wrap(entities.extend Model).extend Collection 
+    def self.wraps(models)
+      return nil unless models
+      wrap(models.extend Model).extend Collection 
     end
 
   end
